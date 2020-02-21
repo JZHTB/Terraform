@@ -53,7 +53,8 @@ A number of naming variables and static configurations are configured within loc
 
 ##Sample Variable Declration
 
-`location = "uksouth"
+```
+location = "uksouth"
 
 resourceGroupName = "terraform-Checkpoint"
 
@@ -75,4 +76,4 @@ frontendSubnetID = "[resourceID - FrontEnd subnet]"
 
 backendSubnetID = ""[resourceID - BackEnd subnet]""
 
-virtualNetworkName = "[vNet Name]"`
+virtualNetworkName = "[vNet Name]"```
