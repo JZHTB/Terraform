@@ -1,6 +1,6 @@
 # Check Point CloudGuard R8030
 
-This module will create a cluster of CloudGuard R8030's across availability-zones. At the time of writing the maximum zones within a region is 3, so at most this module can create 3 machines per region. 
+This module will create a cluster of CloudGuard R8030's across availability-zones, ported from Checkpoints Marketplace image. At the time of writing the maximum zones within a region is 3, so at most this module can create 3 machines per region. 
 
 This Module requires a pre-existing virtual network with a dedicated subnet for both front and backend resources. 
 
