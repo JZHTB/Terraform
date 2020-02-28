@@ -51,7 +51,7 @@ This Module will create the following in its own, newly created resource group:
 A number of naming variables and static configurations are configured within locals.tf. Most notably the customdata script that is injected into the machine on provisioning
 
 
-##Sample Variable Declration
+## Sample Variable Declration
 
 ```
 location = "uksouth"
