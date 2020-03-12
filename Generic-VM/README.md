@@ -68,11 +68,11 @@ data_disks = [
 }]
 
 nic_tags = {
-  time_stamp = "now"
+  timestamp = timestamp()
 }
 
 vm_tags = {
-  time_stamp = "now"
+  timestamp = timestamp()
 }
 ```
 
@@ -100,7 +100,7 @@ vm_tags = {
 
 
 
-### data_disks 
+### data disks 
 The data_disk map will create _n_ of data disks in the following fashion. You must provide a drive_letter, drive_label, the create_option (i.e an empty disk or a pre_baked image from a library), managed_disk_type (specify the replication requirements) and lun
 
 For each map provided bellow in a list a new disk is provisioned. 
@@ -110,7 +110,7 @@ For each map provided bellow in a list a new disk is provisioned.
        create_option     = "empty"
        disk_size_gb      = "100"
        managed_disk_type = "Standard_LRS"
-       lun               = "10"```
+       lun               = "10"
        }
 ```
 An additional extension, enabled with _enable_first_login_script_ will run a powershell script on the guest and format and label each of these instances. If you do not run the fist login script, the drive letter and label will be ignored. 
@@ -120,7 +120,7 @@ An additional extension, enabled with _enable_first_login_script_ will run a pow
 | Variable | Type | Description|
 |-----|-----|-----|
 | enable_vm_disk_encryption | bool | Default: false. Override to enable extension |
-| keyvault_uri| string | Default: nil.  If Disk Encryption is enabled, you must provide a keyvault in order to store the encryption key |
+| keyvault_uri| string | Default: nil.  If Disk Encryption is enabled, you must provide a keyvault in order to store the encryption key 
  
  ## Optional Vars - Domain Joining
  
@@ -150,10 +150,7 @@ An additional extension, enabled with _enable_first_login_script_ will run a pow
    | diagnotics_storage_account_name| string | Default: nil.  Key being used for access to storage account for the diagnostic extension|
   
     
-   
-  
-  
- 
+
 ## Optional Vars - Log Analytics (OMS)
 
 | Variable | Type | Description|
