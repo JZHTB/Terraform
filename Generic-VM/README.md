@@ -43,8 +43,8 @@ enable_accelerated_networking = true
 enable_first_login_script     = true
 enable_diagnostics_extension  = true
 
-oms_workspace_id  = "9cc6cfb3_d67c_4776_a050_5039e39cee1e"
-oms_workspace_key = "KVZtjnt/POUkyOkrvHg9J+mlN70tqQ16q5khIz5vc1NeL7aJNntRB2/ph2v893ReJUMtkY3IlHHrLuFjA2VLdw=="
+oms_workspace_id  = "[Workspace ID]"
+oms_workspace_key = "[Workspace Primary Key]"
 keyvault_uri      = [URI of Keyvault]
 
 
