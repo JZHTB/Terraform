@@ -12,7 +12,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 100
     protocol                     = "TCP"
     source_port_range            = "*"
-    destination_port_ranges      = ["53", "123", "135", "139", "445", "464", "3268-3269"]
+    destination_port_ranges      = ["53", "88", "135-137", "139", "389", "445", "464", "636", "3268-3269"]
     source_address_prefixes      = [var.spoke-ip-range]
     destination_address_prefixes = [var.domain-controller-ip-range]
   }
@@ -23,7 +23,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 110
     protocol                     = "UDP"
     source_port_range            = "*"
-    destination_port_ranges      = ["53", "135", "138", "389", "445", "464"]
+    destination_port_ranges      = ["53", "88", "123", "135", "137-139", "389", "445", "464", "636"]
     source_address_prefixes      = [var.spoke-ip-range]
     destination_address_prefixes = [var.domain-controller-ip-range]
   }
@@ -34,7 +34,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 120
     protocol                     = "TCP"
     source_port_range            = "*"
-    destination_port_ranges      = ["4952-65535"]
+    destination_port_ranges      = ["49152-65535"]
     source_address_prefixes      = [var.spoke-ip-range]
     destination_address_prefixes = [var.domain-controller-ip-range]
   }
@@ -45,7 +45,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 100
     protocol                     = "TCP"
     source_port_range            = "*"
-    destination_port_ranges      = ["53", "123", "135", "139", "445", "464", "3268-3269"]
+    destination_port_ranges      = ["53", "88", "135-137", "139", "389", "445", "464", "636", "3268-3269"]
     source_address_prefix        = "VirtualNetwork"
     destination_address_prefixes = [var.spoke-ip-range]
   }
@@ -56,7 +56,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 110
     protocol                     = "UDP"
     source_port_range            = "*"
-    destination_port_ranges      = ["53", "135", "138", "389", "445", "464"]
+    destination_port_ranges      = ["53", "88", "123", "135", "137-139", "389", "445", "464", "636"]
     source_address_prefix        = "VirtualNetwork"
     destination_address_prefixes = [var.spoke-ip-range]
   }
@@ -67,7 +67,7 @@ resource "azurerm_network_security_group" "domain_controller_nsg" {
     priority                     = 120
     protocol                     = "TCP"
     source_port_range            = "*"
-    destination_port_ranges      = ["4952-65535"]
+    destination_port_ranges      = ["49152-65535"]
     source_address_prefix        = "VirtualNetwork"
     destination_address_prefixes = [var.spoke-ip-range]
 }
