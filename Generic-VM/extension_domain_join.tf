@@ -1,6 +1,6 @@
 resource "azurerm_virtual_machine_extension" "vm_domain_join" {
   count                = var.enable_domain_join ? 1 : 0
-  depends_on = [azurerm_virtual_machine.vm_virtualmachine]
+  depends_on           = [azurerm_virtual_machine.vm_virtualmachine]
   name                 = "DomainJoin"
   virtual_machine_id   = azurerm_virtual_machine.vm_virtualmachine.id
   publisher            = "Microsoft.Compute"
