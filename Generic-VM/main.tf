@@ -58,11 +58,11 @@ resource "azurerm_virtual_machine" "vm_virtualmachine" {
   }
   
   dynamic "boot_diagnostics" {
-    #Ugly method for turnary on for_each, supply an empty and single entry list :(
-    for_each = var.diags_storage_account_uri == "null" ? [] : ["single_entry_list"]
+    #Ugly method for turnary on for_each, supply an empty and single item list :(
+    for_each = var.boot_diag_storage_account_uri == "null" ? [] : ["1"]
     content {
       enabled     = true
-      storage_uri = var.diags_storage_account_uri
+      storage_uri = var.boot_diag_storage_account_uri
     }
   }
 
