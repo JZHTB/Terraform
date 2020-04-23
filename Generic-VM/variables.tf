@@ -92,7 +92,7 @@ variable "diagnostics_storage_account_key" {
 }
 
 //Boot Diagnostics
-variable "diags_storage_account_uri" {
+variable "boot_diag_storage_account_uri" {
   description = "uri for storage account to enable boot diagnostics"
   default     = "null"
 }
