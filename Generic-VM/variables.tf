@@ -79,7 +79,7 @@ variable "oms_workspace_key" {
 }
 
 
-//Diagnostics
+//Diagnostics Extension
 variable "diagnotics_storage_account_name" {
   description = "name of storage account being used for the diagnostic extension"
   type        = string
@@ -90,6 +90,13 @@ variable "diagnostics_storage_account_key" {
   type        = string
   default     = ""
 }
+
+//Boot Diagnostics
+variable "diags_storage_account_uri" {
+  description = "uri for storage account to enable boot diagnostics"
+  default     = "null"
+}
+
 
 
 //Recovery Services
