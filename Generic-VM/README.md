@@ -97,6 +97,7 @@ vm_tags = {
 | timezone | string | Default: UTC.  The timezone configured on the instance. |
 | vm_size | string | Default: Standard_B2s.  The Azure size (SKU) of the VM. |
 | data_disks | map(string) | Default: nil. To provision further data disks, over ride this value (see below) |
+| boot_diag_storage_account_uri | string | Default: null. To enable boot diagnostics extension within VM |
 
 
 
