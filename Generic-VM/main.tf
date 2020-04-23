@@ -59,7 +59,7 @@ resource "azurerm_virtual_machine" "vm_virtualmachine" {
   
   dynamic "boot_diagnostics" {
     #Ugly method for turnary on for_each, supply an empty and single entry list :(
-    for_each = var.diags_storage_account_uri == $null ? [] : ["single_entry_list"]
+    for_each = var.diags_storage_account_uri == "null" ? [] : ["single_entry_list"]
     content {
       enabled     = true
       storage_uri = var.diags_storage_account_uri
