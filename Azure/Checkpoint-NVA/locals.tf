@@ -31,6 +31,9 @@ locals {
     "sku" : "sg-byol"
     "version" : "latest"
   }
+  default_tags = {
+    timestamp = timestamp()
+  }
 
   //managment specific locals
   nsgName              = "NSG-management"

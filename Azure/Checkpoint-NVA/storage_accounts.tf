@@ -5,7 +5,5 @@ resource "azurerm_storage_account" "Checkpoint_diagnostic_storage_account" {
   account_tier             = "Standard"
   account_replication_type = local.storageAccountType
 
-  tags = {
-    timestamp = timestamp()
-  }
+  tags = local.default_tags
 }

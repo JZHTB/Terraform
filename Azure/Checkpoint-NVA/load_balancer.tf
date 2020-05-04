@@ -9,6 +9,8 @@ resource "azurerm_lb" "checkpoint_lb_external" {
     name                 = "LoadBalancerFrontend"
     public_ip_address_id = azurerm_public_ip.elb_public_ip.id
   }
+
+  tags                = local.default_tags
 }
 resource "azurerm_lb_backend_address_pool" "checkpoint_lb_external_backend_pool" {
   resource_group_name = azurerm_resource_group.Checkpoint_ResourceGroup.name

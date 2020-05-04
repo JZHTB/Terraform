@@ -46,6 +46,9 @@ resource "azurerm_virtual_machine" "Checkpoint_virtual_machine_primary" {
     enabled     = "true"
     storage_uri = azurerm_storage_account.Checkpoint_diagnostic_storage_account.primary_blob_endpoint
   }
+
+  tags = local.default_tags
+
 }
 
 resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_frontend_primary" {
@@ -71,6 +74,9 @@ resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_frontend_pr
     private_ip_address            = var.clusterVIP
     public_ip_address_id          = azurerm_public_ip.vm_public_ip_cluster.id
   }
+
+  tags = local.default_tags
+
 }
 
 resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_frontend_secondary" {
@@ -90,6 +96,9 @@ resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_frontend_se
     public_ip_address_id                    = azurerm_public_ip.vm_public_ip.1.id
     load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.checkpoint_lb_external_backend_pool.id]
   }
+
+  tags = local.default_tags
+
 }
 
 resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_backend" {
@@ -108,6 +117,9 @@ resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_backend" {
     private_ip_address                      = var.backendIPs[count.index]
     load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.checkpoint_lb_internal_backend_pool.id]
   }
+
+  tags = local.default_tags
+
 }
 //Above deprecated load_balancer_backend_address_pools_ids is to be replaced only. with below resources when provider 2.0 released
 //For now both resources must exist to prevent continual create/delete loop

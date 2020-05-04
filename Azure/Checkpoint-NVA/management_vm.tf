@@ -44,6 +44,8 @@ resource "azurerm_virtual_machine" "Checkpoint_virtual_machine_management" {
     enabled     = "true"
     storage_uri = azurerm_storage_account.Checkpoint_diagnostic_storage_account.primary_blob_endpoint
   }
+
+  tags = local.default_tags
 }
 
 
@@ -63,4 +65,7 @@ resource "azurerm_network_interface" "Checkpoint_virtual_machine_NIC_management"
     private_ip_address            = var.managementIP
     public_ip_address_id          = azurerm_public_ip.vm_public_ip_management.id
   }
+
+  tags = local.default_tags
+
 }

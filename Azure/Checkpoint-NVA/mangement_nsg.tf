@@ -100,8 +100,6 @@ resource "azurerm_network_security_group" "management_nsg" {
     destination_address_prefix = "*"
   }
 
-  tags = {
-    timestamp = timestamp()  }
+  tags = local.default_tags
 }
-
 

@@ -6,10 +6,7 @@ resource "azurerm_public_ip" "elb_public_ip" {
   sku                     = "standard"
   domain_name_label       = lower("${local.elbPublicIPName}-${random_string.naming_random_suffix.result}")
   idle_timeout_in_minutes = 30
-  tags = {
-    timestamp = timestamp()
-
-  }
+  tags = local.default_tags
 }
 
 resource "azurerm_public_ip" "vm_public_ip" {
@@ -21,9 +18,7 @@ resource "azurerm_public_ip" "vm_public_ip" {
   domain_name_label       = lower("${var.namePrefix}-${local.nameSuffix[count.index]}-${random_string.naming_random_suffix.result}")
   idle_timeout_in_minutes = 30
   count                   = var.instanceCount
-  tags = {
-    timestamp = timestamp()
-  }
+  tags = local.default_tags
 }
 
 resource "azurerm_public_ip" "vm_public_ip_management" {
@@ -34,9 +29,8 @@ resource "azurerm_public_ip" "vm_public_ip_management" {
   sku                     = "standard"
   domain_name_label       = lower("${var.namePrefix}-Management-${random_string.naming_random_suffix.result}")
   idle_timeout_in_minutes = 30
-  tags = {
-    timestamp = timestamp()
-  }
+  
+  tags = local.default_tags
 }
 
 resource "azurerm_public_ip" "vm_public_ip_cluster" {
@@ -47,8 +41,6 @@ resource "azurerm_public_ip" "vm_public_ip_cluster" {
   sku                     = "standard"
   domain_name_label       = lower("${var.namePrefix}-${random_string.naming_random_suffix.result}")
   idle_timeout_in_minutes = 30
-  tags = {
-    timestamp = timestamp()
-  }
-
+  
+  tags = local.default_tags
 }
